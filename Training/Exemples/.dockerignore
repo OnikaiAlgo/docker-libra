@@ -1,0 +1,4 @@
+# Ignorer les répertoires de build et les fichiers de configuration non pertinents node_modules
+dist
+*.log
+.git

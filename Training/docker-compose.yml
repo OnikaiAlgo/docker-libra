@@ -1,0 +1,28 @@
+services:
+  web:
+    image: nginx:latest
+    depends_on:
+      - database
+    ports:
+    - 8080:80
+    networks:
+      - my_networks
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: openclassrooms
+      POSTGRES_PASSWORD: openclassrooms
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data 
+    networks:
+      - my_networks
+
+networks:
+  my_networks:
+    driver: bridge
+
+volumes:
+  db-data:
+
